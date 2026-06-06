@@ -1,2 +1,3 @@
-# AnglePlugin
-A plugin for MojoLauncher that provides an ANGLE OpenGL ES driver
+# ZINK Plugin
+
+A plugin app for MojoLauncher implementing legacy (23.0.4) Zink for old Mali devices

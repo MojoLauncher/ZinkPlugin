@@ -4,9 +4,6 @@ on:
   push:
   workflow_dispatch:
 
-env:
-  ANGLE_REPO: whitebelyash/ANGLE
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,18 +15,6 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: gradle
-
-    - name: Create libs directory
-      run: mkdir ./app/libs
-
-    - name: Download AAR
-      uses: dawidd6/action-download-artifact@v11
-      with:
-        name: angle-aar
-        path: ./app/libs
-        repo: MojoLauncher/angle-builder
-        workflow: blank.yml
-        workflow_conclusion: success
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
@@ -47,6 +32,6 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         tag_name: rel
-        name: Mojo ANGLE Plugin
+        name: Mojo ZINK Plugin
         files: |
           app/build/outputs/apk/debug/app-debug.apk
